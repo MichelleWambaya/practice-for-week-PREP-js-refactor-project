@@ -1,134 +1,206 @@
-/* 
-    Original:
-    Write a function `plusFive` that takes in a number as an argument and
-    returns the sum of that number and 5.
+function divideByThree(num) {
+    /* Returns the passed in number argument divided by three. */
+    return num/3;
+};
+console.log(divideByThree(6));
 
-    New:
-    Write a function `plusTen` that takes in a number as an argument and
-    returns the sum of that number and 10.
-*/
-function plusFive(num) {
-    return num + 5;
+function averageOfTwo(num1, num2) {
+    /* Returns the average of two numbers, num1 and num2. */
+    return (num1+num2)/2;
+};
+console.log(averageOfTwo(4,16))
+
+function averageOfFour(num1, num2, num3, num4) {
+    /* Takes in four numbers. The function should return the average of all of
+    the numbers. */
+    return (num1+num2+num3+num4)/2;
+};
+console.log(averageOfFour(2,4,6,10))
+
+function doubler(nums) {
+
+    /* Takes an array of numbers and returns a new array where every element of
+    the original array is multiplied by 2. */
+   return nums.map(num => num *2);
+
+   //using map method
+
+}
+console.log(doubler([2,3,4]));
+
+
+
+function doubler(nums) {
+    /* Takes an array of numbers and returns a new array where every element of
+    the original array is multiplied by 2. */
+    let originalArray = [];
+//using push method
+    for (let i=0; i<nums.length; i++){
+     originalArray.push(nums[i]*2);
+    }
+    return originalArray;
 }
 
+console.log(doubler([2,4]))
 
-/*
-    Original:
-    Write a function `printFives(max)` that prints out the multiples of 5 that 
-    are less than max.
+function combineArrays(arr1, arr2) {
+    /* Takes in two arrays of numbers and returns the two arrays combined into
+    a single array. **Hint**: Use the `Array.concat` method but be aware that
+    calling this method won't permanently change, also known as **mutate**,
+    either array. */
+   let twoArrays = arr1.concat(arr2);
 
-    New:
-    Write a function `returnSevens(max)` that returns an array that contains
-    multiples of 7 that are less than max.
-*/
-function printFives(max) {
-    for (let i = 0; i < max; i++) {
-        if (i % 5 === 0) {
-            console.log(i);
+   return twoArrays;
+
+};
+console.log(combineArrays(([2,4,2]),([6,7,2])))
+
+
+function wordWithinArray(word, arr) {
+    /* Takes in both a word and an array of words as arguments and returns a
+    boolean that returns true if that string is located inside of the array, or
+    false if it does not. Use `Array.indexOf`. */
+
+   if (arr.indexOf(word)> 0){
+    return true;
+   }
+   return false;
+
+
+};
+console.log(wordWithinArray(("purple"),("she has a purlple dress")))
+
+
+function echo(str) {
+    /* Takes in a string and returns that string "echo-ized". E.g.
+    echo("Mom!"); // => returns "MOM! ... Mom! ... mom!"
+    echo("hey"); // => returns "HEY ... hey ... hey"
+    echo("JUMp"); // => returns "JUMP ... JUMp ... jump" */
+
+    return str.toUpperCase() + " ... " + str +  " ... " + str.toLowerCase()
+};
+console.log(echo("Mom!"))
+
+
+function fizzBuzz(max) {
+    /* Takes a number, max and returns an array that contains every number from
+    0 to max (not inclusive) that is divisible by either 3 or 5, **but not both**. */
+
+        // Initialize an empty array to hold the results
+        const result = [];
+
+        // Loop through numbers from 0 to max (not inclusive)
+        for (let i = 0; i < max; i++) {
+            // Check if the number is divisible by 3 or 5, but not both
+            if ((i % 3 === 0 || i % 5 === 0) && !(i % 3 === 0 && i % 5 === 0)) {
+                // Add the number to the result array
+                result.push(i);
+            }
         }
+
+        // Return the result array
+        return result;
     }
-}
+
+    // Example usage:
+    console.log(fizzBuzz(20)); // Output: [3, 5, 6, 9, 10, 12, 18]
 
 
-/*
-    Original:
-    Write a function named `eitherStringIncluded(sentence, word1, word2)` that
-    accepts a sentence and two words as arguments. The `eitherStringIncluded`
-    function should return `true` if *either* `word1` or `word2` is found in
-    the sentence, and `false` if neither is found. 
+function hello(name) {
+    /* Takes in a string name and returns a string saying "Hello, " to that name. */
+    return "Hello, " + name
+};
+console.log(hello("Michelle"))
 
-    New:
-    Write a function named `bothStringsIncluded(sentence, word1, word2)` that
-    accepts a sentence and two words as arguments. The `bothStringsIncluded`
-    function should return `true` if *both* `word1` and `word2` are found in
-    the sentence, and `false` if neither or only 1 is found.
-*/
-function eitherStringIncluded(sentence, word1, word2) {
-    return sentence.includes(word1) || sentence.includes(word2);
-}
+function goodbye(name) {
+    /* Takes in a string name and returns a string saying "Bye, " to that name. */
+    return "Bye, " + name
+};
+console.log(goodbye("Valentine"))
 
-
-/*
-    Original:
-    Write a function `sumArray(arr)` that takes in an array of numbers and
-    returns the total sum of all the numbers.
-
-    New:
-    Write a function `productArray(arr)` that takes in an array of numbers and
-    returns the product of all the numbers. The product of an array  is the number
-    you get when you multiply all the numbers together.
-*/
-function sumArray(arr) {
-    let sum = 0;
-    for (let i = 0; i < arr.length; i++) {
-        sum += arr[i];
+function isFive(num) {
+    /* Takes in a number, num, and returns `true` if a number is equal to 5 and
+    `false` if it is not. */
+    if(num == 5){
+        return true
     }
-    return sum;
-}
+    return false
+};
+console.log(isFive(6))
+
+function isOdd(num) {
+    /* Takes in a number and returns `true` if the number is odd and returns
+    `false` otherwise. Try writing this with and without `if` statements */
+    if(num % 2 === 1){//also checks if it is odd
+        return true
+    }
+    return false
+};
+console.log(isOdd(23))
+
+//without 'if statemets'
+function isOdd(num){
+    return num % 2 !== 0;//checks if it is odd
+};
+console.log(isOdd(2))
 
 
-/*
-    Original:
-    Write a function `threeOrSeven` that takes in a number and returns `true`
-    if the number is divisible by either 3 or 7 and `false` otherwise.
-
-    New:
-    Write a function `fiveAndEleven` that takes in a number and returns `true`
-    if the number is divisible by BOTH 5 and 11 and `false` otherwise.
-*/
-function threeOrSeven(num) {
-    return num % 3 === 0 || num % 7 === 0;
-}
 
 
-/*
-    Original:
-    Write a function, `countVowels(word)`, that takes in a string word and
-    returns the number of vowels in the word.
 
-    New:
-    Write a function, `countConsonants(word)`, that takes in a string word and
-    returns the number of consonants in the word.
-*/
-function countVowels(word) {
-    const vowels = ["a", "e", "i", "o", "u"];
+function isSubString(searchString, subString) {
+    /* Takes in two strings, `searchString` and `subString`. Should return
+    `true` if `subString` is a part of the`searchString`, regardless of upper
+    or lower case, and `false` if otherwise. */
+    return searchString.toLowerCase().includes(subString.toLowerCase())
+};
+console.log(isSubString("My boyfriend is handsome", "my"))
+
+function aCounter(word) {
+    /* Takes in a word and returns the number of a's within that word. Counts
+    both lowercase (a) and uppercase (A). Your job is to translate the following
+    function to use a `for` loop instead of the `while` loop it is currently
+    using. */
+
+    /*
+    let index = 0;
     let count = 0;
-    for (let i = 0; i < word.length; i++) {
-        if (vowels.includes(word[i])) {
-            count++;
+    while (index < word.length) {
+        let char = word[index];
+        if (char === "a" || char === "A") {
+        count += 1;
         }
+        index++;
     }
     return count;
+    */
+    let count = 0;
+
+for(index = 0; index < word.length; index++){
+    let char = word[index];
+    if (char === "a" || char === "A") {
+        count += 1;
+
 }
-
-
-/*
-    Original:
-    Write a function `whisper` that takes in a string and returns a "whispered"
-    version of that string. Use the `.toLowerCase()` function on a string to
-    see what it does!
-
-    New:
-    Write a function `alternatingLetters` that takes in a string and returns a
-    version of that string where letters alternate uppercase and lowercase,
-    starting with lowercase. Do not make exceptions for spaces within the
-    string.
-
-    Strings are immutable, so here are some tools you may find useful. The
-    `.split('')` function on strings to make a copy of the string as an array. 
-    The `.join('')` function joins the elements in an array into a string.
-*/
-function whisper(str) {
-    return str.toLowerCase();
 }
+return count;
 
+};
+console.log(aCounter("WAmbaya"))
 
 module.exports = {
-    plusTen,
-    returnSevens,
-    bothStringsIncluded,
-    productArray,
-    fiveAndEleven,
-    countConsonants,
-    alternatingLetters   
+    divideByThree,
+    averageOfTwo,
+    averageOfFour,
+    doubler,
+    combineArrays,
+    wordWithinArray,
+    echo,
+    fizzBuzz,
+    hello,
+    goodbye,
+    isFive,
+    isOdd,
+    isSubString,
+    aCounter
 }
